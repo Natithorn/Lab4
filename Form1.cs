@@ -53,15 +53,17 @@ namespace LAB4
             this.textGPAMaxBox3.Text = GPAAll.Last().ToString();
             this.textGPAminBox2.Text = GPAAll.First().ToString();
             //Show name Max Min
-            this.textShownameMaxBox4.Text = this.textName1.Text.Last().ToString(); 
-            this.textShownameMinBox5.Text = this.textName1.Text.First().ToString();
+            this.textShownameMaxBox4.Text = classroom.maxGPAName(); 
+            this.textShownameMinBox5.Text = classroom.minGPAName();
 
 
 
             //sum Gpa avg
-            double cerrentgpa = double.Parse(this.textGPA1.Text);
-            double Avggpa = (cerrentgpa + person.GetGPA())/5;
-            this.textGPAavgBox1.Text = Avggpa.ToString(); 
+            textGPAavgBox1.Text = classroom.GPAavg();
+
+            //double cerrentgpa = double.Parse(this.textGPA1.Text);
+            //double Avggpa = (cerrentgpa + person.GetGPA())/5;
+            //this.textGPAavgBox1.Text = Avggpa.ToString(); 
 
 
             //show person name

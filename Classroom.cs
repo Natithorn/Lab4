@@ -18,14 +18,6 @@ namespace LAB4
         {
             this.name = name;
         }
-        public Classroom(int age)
-        {
-            this.age = age;
-        }
-        public Classroom()
-        {
-            this.Gpa = Gpa;
-        }
 
         public void addPerson2Class(Person p)
         {
@@ -34,10 +26,6 @@ namespace LAB4
         public void addAge2Class(Person a)
         {
             this.persons.Add(a);
-        }
-        public void addGPaAlll2Class(Person g)
-        {
-            this.persons.Add(g);
         }
 
         public string showAllPersoninClass()
@@ -59,16 +47,63 @@ namespace LAB4
             }
             return result1;
 
-
         }
-        public string showAllGPaPerson()
+
+        public void AddGPA2Class(Person g)
         {
-            string result = "";
-            foreach (Person g in this.persons)
+            persons.Add(g);
+        }
+
+        public string GPAavg()
+        {
+            double totalGPA = 0;
+            int count = 0;
+            foreach (Person g in persons)
             {
-                result += g.GetGPA() + "\r\n";
+                totalGPA += g.GetGPA();
+                count++;
             }
-            return result;
+            double avgGPA = totalGPA / count;
+            return avgGPA.ToString();
+        }
+
+        public string minGPAName()
+        {
+            double totalGPA = 0;
+            int count = 0;
+            double minGPA = double.MaxValue;
+            string name = "";
+            foreach (Person g in persons)
+            {
+                double currentGPA = g.GetGPA();
+                totalGPA += currentGPA;
+                count++;
+                if (currentGPA < minGPA)
+                {
+                    minGPA = currentGPA;
+                    name = g.GetName();
+                }
+            }
+            return name;
+        }
+        public string maxGPAName()
+        {
+            double totalGPA = 0;
+            int count = 0;
+            double maxGPA = 0;
+            string name = "";
+            foreach (Person g in persons)
+            {
+                double currentGPA = g.GetGPA();
+                totalGPA += currentGPA;
+                count++;
+                if (currentGPA > maxGPA)
+                {
+                    maxGPA = currentGPA;
+                    name = g.GetName();
+                }
+            }
+            return name;
         }
     }
 }
